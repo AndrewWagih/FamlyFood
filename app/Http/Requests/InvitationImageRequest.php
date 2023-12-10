@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SubmitQuestionnaireRequest extends FormRequest
+class InvitationImageRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,10 +22,8 @@ class SubmitQuestionnaireRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|max:255',
-            'nationality' => 'required|max:255',
-            'resident_or_passport_id' => 'required|max:255',
-            'phone' => 'required|max:255',
+            'invitation_image' => ['image', 'mimes:jpg,png,jpeg,gif,svg','required'],
+
         ];
     }
 }

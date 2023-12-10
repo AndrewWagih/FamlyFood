@@ -13,25 +13,14 @@ class InvitationSeeder extends Seeder
      */
     public function run(): void
     {
-        $nationality = [
-            'American',
-            'British',
-            'Canadian',
-            'Australian',
-        ];
-        $status = ['pending','accept','reject'];
-        for($i=0;$i<20;$i++)
-        {
-            shuffle($nationality);
-            shuffle($status);
-            $faker = \Faker\Factory::create();
-            Invitation::create([
-                'name' => $faker->name,
-                'email' => $faker->email,
-                'resident_or_passport_id' => $faker->city,
-                'nationality' => $nationality[0],
-                'status' => $status[0],
-            ]);
-        }
+
+        $faker = \Faker\Factory::create();
+        Invitation::create([
+            'name' => $faker->name,
+            'email' => $faker->email,
+            'resident_or_passport_id' => $faker->city,
+            'nationality' => 'American',
+        ]);
+        
     }
 }

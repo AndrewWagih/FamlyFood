@@ -15,9 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('email')->nullable();
+            $table->string('phone')->nullable();
             $table->string('resident_or_passport_id')->nullable();
             $table->string('nationality')->nullable();
             $table->enum('status',['pending','accept','reject'])->default('pending');
+            $table->boolean('confirmed_attendance')->default(false);
+            $table->unsignedBigInteger('parent_id')->nullable();
+            $table->foreign('parent_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }

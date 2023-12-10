@@ -8,7 +8,7 @@
         @csrf()
         <div class="row g-3">
           <div class="col-md-12">
-            <label for="name" class="form-label">Name</label>
+            <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="name" name="name" placeholder="Please enter the name">
             @if ($errors->has('name'))
               <span class="invalid-feedback d-block">
@@ -17,7 +17,7 @@
             @endif
           </div>
           <div class="col-md-12">
-            <label for="email" class="form-label">Email</label>
+            <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
             <input type="email" class="form-control" id="email" name="email" placeholder="Please enter the email">
             @if ($errors->has('email'))
               <span class="invalid-feedback d-block">
@@ -27,7 +27,7 @@
           </div>
           
           <div class="col-md-12">
-            <label for="nationality" class="form-label">Nationality</label>
+            <label for="nationality" class="form-label">Nationality ( Optional )</label>
             <input type="text" class="form-control" id="nationality" name="nationality" placeholder="Please enter the nationality">
             @if ($errors->has('nationality'))
               <span class="invalid-feedback d-block">
@@ -36,7 +36,7 @@
             @endif
           </div>
           <div class="col-md-12">
-            <label for="resident_or_passport_id" class="form-label">Resident/Passport ID</label>
+            <label for="resident_or_passport_id" class="form-label">Resident/Passport ID ( Optional )</label>
             <input type="text" class="form-control" id="resident_or_passport_id" name="resident_or_passport_id" placeholder="Please enter the Resident/Passport ID">
             @if ($errors->has('resident_or_passport_id'))
               <span class="invalid-feedback d-block">
