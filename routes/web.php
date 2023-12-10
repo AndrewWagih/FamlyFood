@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use  Dinushchathurya\NationalityList\Nationality;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,8 +31,14 @@ Route::get('invitation/{id}','InvitationController@invitation')->name('invitatio
 Route::post('invitation/accept-or-reject/{id}','InvitationController@acceptOrReject')->name('invitation.acceptOrReject');
 
 Route::get('questionnaire/{id}','InvitationController@questionnaire')->name('questionnaire');
+Route::post('questionnaire/{id}','InvitationController@submitQuestionnaire')->name('submitQuestionnaire');
+
 
 Route::get('/','AuthController@loginForm')->name('login');
 Route::post('/login','AuthController@login')->name('login.request');
 
 Route::view('thank-you','thank-you')->name('thank-you');
+
+Route::get('ee',function(){
+    dd(Nationality::getNationalities());
+});

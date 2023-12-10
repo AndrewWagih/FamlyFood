@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreInvitationRequest;
+use App\Http\Requests\SubmitQuestionnaireRequest;
 use App\Models\Invitation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use  Dinushchathurya\NationalityList\Nationality;
 
 class InvitationController extends Controller
 {
     public function index()
     {
-        $invitations = Invitation::latest()->paginate(3);
+        $invitations = Invitation::orderBy('id','desc')->paginate(3);
         return view('invitations.index',compact('invitations'));
     }
 
@@ -51,6 +53,14 @@ class InvitationController extends Controller
 
     public function questionnaire($id)
     {
-        return view('questionnaire',compact('id'));
+        $nationalities = Nationality::getNationalities();
+        return view('questionnaire',compact('id','nationalities'));
+    }
+
+    public function submitQuestionnaire(SubmitQuestionnaireRequest $request,$id)
+    {
+        $invitation = Invitation::find($id);
+        $invitation->update($request->validated());
+        return redirect()->route('thank-you');
     }
 }
