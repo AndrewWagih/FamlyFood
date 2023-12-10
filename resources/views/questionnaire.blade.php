@@ -10,6 +10,7 @@
     <style>
       
     </style>
+    <link rel="stylesheet" href="{{asset('css/jquery.toast.min.css')}}">
   </head>
 
   <body>
@@ -30,17 +31,7 @@
                   {{-- <h1>الرجاء ملئ استبيان</h1> --}}
                   <p>المعلومات المطلوبة لتأكيد حضور حفل التدشين</p>
                 </div>
-                @if (\Session::has('error-message'))
-                <div class="alert alert--error text-white" style="background: #ffc107!important">
-                    <i class="fa fa-times-circle fa-2xl icon"></i> 
-                    <div class="content">
-                        <div class="title"></div>
-                        <div class="body">
-                            {!! \Session::get('error-message') !!}
-                        </div>
-                    </div>
-                </div>
-                @endif
+
                 <div>
                   <div class="labels"><span>Name</span> <span>الأسم</span></div>
                   <input type="text" required name="name" />
@@ -134,6 +125,17 @@
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="{{asset('js/jquery.toast.min.js')}}"></script>
+    <script>
+      @if (\Session::has('error-message'))
+      $.toast({
+        heading: 'Warning',
+        text: '{!! \Session::get('error-message') !!}',
+        showHideTransition: 'plain',
+        icon: 'warning'
+      })
+      @endif
+    </script>
     <script>
       let repeterIndex = 1;
       $('.addNew').on('click',function(e){

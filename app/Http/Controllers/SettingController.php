@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Http\Classes\AppSetting;
 use App\Http\Requests\InvitationImageRequest;
+use Illuminate\Support\Facades\Session;
 
 class SettingController extends Controller
 {
@@ -20,6 +21,7 @@ class SettingController extends Controller
         $setting = new AppSetting();
         $invitation_image = $this->uploadImageToDirectory($request->invitation_image,'Settings');
         $setting->set( 'invitation_image' , $invitation_image);
+        Session::flash('successfully', 'operation was done successfully');
         return redirect()->back();
     }
 

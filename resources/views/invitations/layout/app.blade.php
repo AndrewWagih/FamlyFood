@@ -7,7 +7,7 @@
 
     <!-- global  -->
     <link rel="stylesheet" href="{{asset('css/global.css')}}" />
-    
+    <link rel="stylesheet" href="{{asset('css/jquery.toast.min.css')}}">
   </head>
 
   <body>
@@ -32,7 +32,17 @@
       </main>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
+    <script src="{{asset('js/jquery.toast.min.js')}}"></script>
+    <script>
+      @if (\Session::has('successfully'))
+      $.toast({
+        heading: 'Success',
+        text: 'operation done successfully',
+        showHideTransition: 'slide',
+        icon: 'success'
+      })
+      @endif
+    </script>
     @stack('scripts')
   </body>
 </html>

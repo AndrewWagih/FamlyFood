@@ -32,7 +32,7 @@ class InvitationController extends Controller
         //     $message->to('')->subject('Invitation');
         //     $message->from('','Sender Name');
         // });
-
+        Session::flash('successfully', 'operation was done successfully');
         return redirect()->route('invitations');
     }
 
@@ -84,6 +84,7 @@ class InvitationController extends Controller
             $accompanying['parent_id'] = $invitation->id;
             Invitation::create($accompanying);
         }
+        Session::flash('successfully', 'operation was done successfully');
         return redirect()->route('thank-you');
     }
 }
