@@ -98,20 +98,20 @@
                         <path d="M63 31C45.7148 31 31.6619 17.1815 31.5 -1.37691e-06C31.3909 17.1815 17.3381 31 2.45964e-06 31C17.3381 31 31.3942 44.8709 31.5 62C31.6619 44.8742 45.7148 31 63 31Z" fill="#FFA389"/>
                       </svg>
                       <span style="
-                          font-size: 25px;
+                          font-size: 20px;
                           color: #0A2C36;
-                      ">الوقت:</span>
+                      ">الاسم:</span>
                       <span style="
                           font-size: 25px;
                           color: #4F7989;
-                      ">محمد</span>
+                      ">{{$invitation->name??''}}</span>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 ">
                       <svg xmlns="http://www.w3.org/2000/svg" width="50"  viewBox="0 0 63 62" fill="none">
                         <path d="M63 31C45.7148 31 31.6619 17.1815 31.5 -1.37691e-06C31.3909 17.1815 17.3381 31 2.45964e-06 31C17.3381 31 31.3942 44.8709 31.5 62C31.6619 44.8742 45.7148 31 63 31Z" fill="#FFA389"/>
                       </svg>
                       <span style="
-                          font-size: 25px;
+                          font-size: 20px;
                           color: #0A2C36;
                       ">الموقع:</span>
                       <span style="
@@ -124,7 +124,7 @@
                         <path d="M63 31C45.7148 31 31.6619 17.1815 31.5 -1.37691e-06C31.3909 17.1815 17.3381 31 2.45964e-06 31C17.3381 31 31.3942 44.8709 31.5 62C31.6619 44.8742 45.7148 31 63 31Z" fill="#FFA389"/>
                       </svg>
                       <span style="
-                          font-size: 25px;
+                          font-size: 20px;
                           color: #0A2C36;
                       ">التاريخ:</span>
                       <span style="
@@ -137,7 +137,7 @@
                         <path d="M63 31C45.7148 31 31.6619 17.1815 31.5 -1.37691e-06C31.3909 17.1815 17.3381 31 2.45964e-06 31C17.3381 31 31.3942 44.8709 31.5 62C31.6619 44.8742 45.7148 31 63 31Z" fill="#FFA389"/>
                       </svg>
                       <span style="
-                          font-size: 25px;
+                          font-size: 20px;
                           color: #0A2C36;
                       ">الوقت:</span>
                       <span style="
@@ -148,7 +148,15 @@
                   </div>
                 </div>
                 <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12">
-                  
+                  <div class="d-flex justify-content-center py-2">
+                    {{SimpleSoftwareIO\QrCode\Facades\QrCode::generate($invitation->id)}}
+                  </div>
+                  <div style="
+                    color: #4F7989;
+                    text-align: center;
+                  ">
+                    يرجي ابراز البطاقة عند الدخول
+                  </div>
                 </div>
               </div>
             </div>

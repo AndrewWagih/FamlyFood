@@ -70,37 +70,9 @@
           <div>
             <div class="custom-label py-2"><span class="h3">بيانات المرافق</span></div>
           </div>
-          <div class="col-xl-4  col-lg-4  px-4 py-2">
-            <div class="custom-label py-2"><span>الأسم</span><span>Name</span></div>
-            <input class="customInput" type="text" required name="accompanying[0][name]" />
-          </div>
-          <div class="col-xl-4  col-lg-4  px-4 py-2">
-            <div class="custom-label py-2"><span>الجنسية</span><span>Nationality</span></div>
-            <select class="customInput" required name="accompanying[0][nationality]" id="">
-              @foreach($nationalities as $nationality)
-                <option value="{{$nationality}}">{{$nationality}}</option>
-              @endforeach
-            </select>
-  
-          </div>
-          <div class="col-xl-4  col-lg-4  px-4 py-2">
-            <div class="custom-label py-2"><span>البريد الإلكتروني</span><span>Email</span></div>
-            <input class="customInput" type="email" required name="accompanying[0][email]" />
-          </div>
-          <div class="col-xl-4  col-lg-4  px-4 py-2">
-            <div class="custom-label py-2"><span>رقم الهاتف</span><span>Phone Number</span></div>
-            <input class="customInput phone" type="tel" required name="accompanying[0][phone]" />
-          </div>
-          
-          <div class="col-xl-8  col-lg-8  px-4 py-2">
-            <div class="custom-label py-2"><span>رقم الهوية / الجواز</span><span>Residnet / Passport id</span></div>
-            <input class="customInput" type="text" required name="accompanying[0][resident_or_passport_id]" />
-          </div>
           
         </div>
-        <div style="display: none">
-          
-        </div>
+
         <div class="col-xl-12 col-md-12 col-sm12 px-4 py-2  addNewContainer" style="display: none" >
           <div class="d-flex align-items-center">
             <button class="addNew" > + اضافة مرافق اخر</button>

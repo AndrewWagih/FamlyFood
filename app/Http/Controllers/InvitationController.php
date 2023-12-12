@@ -57,6 +57,11 @@ class InvitationController extends Controller
         return redirect()->route('thank-you');
     }
 
+    public function confirmedAcceptance($id){
+        $invitation = Invitation::find($id);
+        return view('confirmed-acceptance',compact('invitation'));
+    }
+
     public function questionnaire($id)
     {
         $nationalities = Nationality::getNationalities();
@@ -67,11 +72,11 @@ class InvitationController extends Controller
     {
         
         $invitation = Invitation::find($id);
-        // if($invitation->confirmed_attendance == 1)
-        // {
-        //     Session::flash('error-message', 'you already confirmed attendance / لقد قمت بتاكيد الحجز مسبقا');
-        //     return redirect()->back();
-        // }
+        if($invitation->confirmed_attendance == 1)
+        {
+            Session::flash('error-message', 'you already confirmed attendance / لقد قمت بتاكيد الحجز مسبقا');
+            return redirect()->back();
+        }
         $invitation->update([
             'name' => $request->name,
             'nationality' => $request->nationality,
@@ -87,6 +92,7 @@ class InvitationController extends Controller
             Invitation::create($accompanying);
         }
         Session::flash('successfully', 'operation was done successfully');
-        return redirect()->route('thank-you');
+        
+        return redirect()->route('confirmed-acceptance',$invitation->id);
     }
 }

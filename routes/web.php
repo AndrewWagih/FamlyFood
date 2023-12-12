@@ -35,6 +35,7 @@ Route::post('invitation/accept-or-reject/{id}','InvitationController@acceptOrRej
 
 Route::get('questionnaire/{id}','InvitationController@questionnaire')->name('questionnaire');
 Route::post('questionnaire/{id}','InvitationController@submitQuestionnaire')->name('submitQuestionnaire');
+Route::get('confirmed-acceptance/{id}','InvitationController@confirmedAcceptance')->name('confirmed-acceptance');
 
 
 Route::get('/','AuthController@loginForm')->name('login');
@@ -44,7 +45,6 @@ Route::get('/invitation-image-setting','SettingController@invitationSetting')->n
 Route::post('/invitation-image-setting','SettingController@storeInvitationSetting')->name('storeInvitationSetting');
 
 Route::view('invitation-accept-or-reject-second-step','choose-nationality')->name('invitation-accept-or-reject-second-step');
-Route::view('confirmed-acceptance','confirmed-acceptance')->name('confirmed-acceptance');
 
 
 
