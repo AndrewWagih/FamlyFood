@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{asset('css/jquery.toast.min.css')}}">
   </head>
 
-  <body>
+  <body dir="rtl">
     <div class="layoutS2">
       <nav>
         <div class="logo"></div>
@@ -26,7 +26,7 @@
           </li>
         </ul>
       </nav>
-      <main>
+      <main >
         @yield('content')
     
       </main>

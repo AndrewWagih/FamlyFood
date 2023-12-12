@@ -1,24 +1,27 @@
 @extends('invitations.layout.app')
 @section('content')
 <section class="invitationsPage">   
-  <h1 class="d-flex justify-content-center fw-bolder">بيانات حضور حفل التدشين</h1>
+  <h1 class="d-flex justify-content-center fw-bolder">{{__('Inauguration attendance data')}}</h1>
   <div class="table-responsive-xl"> <table class="table">
     <thead>
       <tr>
         <td>
-          <span>اسماء المدعوين</span>
+          <span>{{__('Names of invitees')}}</span>
         </td>
         <td>
-          <span>البريد الالكتروني</span>
+          <span>{{__('Email')}}</span>
         </td>
         <td>
-          <span>جنسيات المدعوين</span>
+          <span>{{__('Nationalities')}}</span>
         </td>
         <td>
-          <span>هويه المدعوين</span>
+          <span>{{__('Phones')}}</span>
         </td>
         <td>
-          <span>عدد مرافقين</span>
+          <span>{{__('Identity of the invitees')}}</span>
+        </td>
+        <td>
+          <span>{{__('Number of companions')}}</span>
         </td>
         {{-- <td>
           <span>رابط الدعوة</span>
@@ -33,24 +36,27 @@
       <tr>
         <td>
           <div class="basicInfo flexAlign">
-          <div class="img"></div>
           <div>
             <div class="title">{{$invite->name}}</div>
-            <div class="subTitle">Name</div>
+            <div class="subTitle">{{__('Name')}}</div>
           </div>
           </div>
         </td>
         <td>
           <div class="title">{{$invite->email}}</div>
-          <div class="subTitle">Email</div>
+          <div class="subTitle">{{__('Email')}}</div>
         </td>
         <td>
           <div class="title">{{$invite->nationality}}</div>
-          <div class="subTitle">Nationality</div>
+          <div class="subTitle">{{__('Nationality')}}</div>
+        </td>
+        <td>
+          <div class="title">{{$invite->phone}}</div>
+          <div class="subTitle">{{__('Phone')}}</div>
         </td>
         <td>
           <div class="title">{{$invite->resident_or_passport_id}}</div>
-          <div class="subTitle">Resident/Passport ID</div>
+          <div class="subTitle">{{__('Resident / Passport ID')}}</div>
         </td>
         <td class="text-center">
           <div class="title">{{$invite->sub->count()}}</div>
@@ -82,9 +88,8 @@
  
 
 <div class="footer">
-  <a class="invitationButton" href="{{route('invitations.create')}}"><img src="../assets/icons/search.svg" alt=""> <span>Invite Friend</span></a>
-
-  <div class="logo"><img src="{{asset('assets/images/logo.svg')}}" alt=""></div>
+  <div class="logo"><img src="{{asset('assets/images/logo.svg')}}" width="300px" alt=""></div>
+  <a class="invitationButton" href="{{route('invitations.create')}}">+ <span>ادعو شخص</span></a>
 </div>
 </section>
 @endsection

@@ -18,6 +18,7 @@ class InvitationSeeder extends Seeder
         Invitation::create([
             'name' => $faker->name,
             'email' => $faker->email,
+            'phone' => '+966500000000',
             'resident_or_passport_id' => $faker->city,
             'nationality' => 'American',
         ]);

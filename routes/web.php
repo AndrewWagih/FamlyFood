@@ -43,6 +43,8 @@ Route::post('/login','AuthController@login')->name('login.request');
 Route::get('/invitation-image-setting','SettingController@invitationSetting')->name('invitationSetting');
 Route::post('/invitation-image-setting','SettingController@storeInvitationSetting')->name('storeInvitationSetting');
 
+Route::view('invitation-accept-or-reject-second-step','choose-nationality')->name('invitation-accept-or-reject-second-step');
+Route::view('confirmed-acceptance','confirmed-acceptance')->name('confirmed-acceptance');
 
 
 

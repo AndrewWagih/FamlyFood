@@ -51,7 +51,8 @@ class InvitationController extends Controller
         $invitation->update(['status' => $request->status]);
         if($request->status == 'accept')
         {
-            return redirect()->route('questionnaire',$invitation->id);
+            return redirect()->route('invitation-accept-or-reject-second-step',['invitation_id'=>$invitation->id]);
+            // return redirect()->route('questionnaire',$invitation->id);
         }
         return redirect()->route('thank-you');
     }
@@ -66,11 +67,11 @@ class InvitationController extends Controller
     {
         
         $invitation = Invitation::find($id);
-        if($invitation->confirmed_attendance == 1)
-        {
-            Session::flash('error-message', 'you already confirmed attendance / لقد قمت بتاكيد الحجز مسبقا');
-            return redirect()->back();
-        }
+        // if($invitation->confirmed_attendance == 1)
+        // {
+        //     Session::flash('error-message', 'you already confirmed attendance / لقد قمت بتاكيد الحجز مسبقا');
+        //     return redirect()->back();
+        // }
         $invitation->update([
             'name' => $request->name,
             'nationality' => $request->nationality,
@@ -82,6 +83,7 @@ class InvitationController extends Controller
         foreach($request->accompanying as $accompanying)
         {
             $accompanying['parent_id'] = $invitation->id;
+            // dd($accompanying);
             Invitation::create($accompanying);
         }
         Session::flash('successfully', 'operation was done successfully');

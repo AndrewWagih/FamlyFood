@@ -1,0 +1,23 @@
+{
+    "Send invitation" : "ارسال دعوة",
+    "Email":"البريد الالكتروني",
+    "Please enter the email":"ادخل البريد الالكتروني",
+    "Phone":"رقم الهاتف",
+    "Phones":"ارقم الهاتف",
+    "Please enter the phone":"ادخل رقم الهاتف",
+    "Nationality ( Optional )":"الجنسية ( اختياري )",
+    "Nationality":"الجنسية",
+    "Nationalities":"الجنسيات",
+    "Please enter the nationality":"ادخل الجنسية",
+    "Resident/Passport ID ( Optional )":"رقم الجولز ( اختياري )",
+    "Resident/Passport ID":"رقم الجولز",
+    "Please enter the Resident/Passport ID":"ادخل رقم الجواز",
+    "Send":"ارسل",
+    "Cancel":"الغاء",
+    "Names of invitees" : "أسماء المدعوين",
+    "Identity of the invitees" :"هوية المدعوين",
+    "Number of companions" : "عدد مرافقين",
+    "Inauguration attendance data" : "بيانات حضور حفل التدشين",
+    "Resident / Passport ID" : "هوية المقيم / جواز السفر"
+
+}

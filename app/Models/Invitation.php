@@ -9,7 +9,7 @@ class Invitation extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $guarded = ['countryCode'];
 
     public function parent()
     {

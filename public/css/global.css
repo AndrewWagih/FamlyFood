@@ -35,6 +35,7 @@ body {
   overflow-x: hidden;
   font-family: "Almarai", sans-serif;
   color: var(--color-primary);
+
 }
 
 html,
@@ -339,9 +340,11 @@ nav .nav-list {
 }
 .invitationsPage table tr td:last-of-type {
   padding: 0;
+  
 }
 .invitationsPage table tr td .basicInfo {
   gap: 10px;
+  padding: 25px 35px;
 }
 .invitationsPage table tr td .basicInfo .img {
   height: 70px;
@@ -442,14 +445,14 @@ nav .nav-list {
 {
   display: flex;
   justify-content: center;
-  padding: 30px 0;
   background: #283645;
   color: white;
   font-size: 14px;
   font-weight: bolder;
   width: 180px;
-  /* margin: 0 auto; */
-  border-radius: 20px;
+  border-radius: 19px;
+  height: 66px;
+  align-items: center;
 }
 
 .layout .head-section{
@@ -479,14 +482,23 @@ margin-bottom: 20px;
 
 .custom-radio input {
 
-  width: 20px !important;
-  height: 20px !important;
+  width: 42px !important;
+  height: 39px !important;
   border: 2px solid #3498db !important;
-  border-radius: 50% !important;
+  border-radius: 16px !important;
   outline: none !important;
   margin-right: 10px !important;
   cursor: pointer !important;
+  
 }
+.form-check-input:checked {
+  background-color: #91B6BC;
+
+}
+.form-check-input:checked[type=checkbox],.form-check-input:checked[type=radio]{
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+}
+
 .addNew{
   display: block;
   font-size: 16px !important;
@@ -494,6 +506,104 @@ margin-bottom: 20px;
   font-weight: 700 !important;
   border-radius: 10px !important;
   margin-bottom: 30px !important;
+  background: #91B6BC;
+  color: #FFFFFF;
 
 }
 
+/* 
+  New Code Design
+*/
+
+.header 
+{
+  background-color: #15394b;
+  color: white;
+}
+
+.header .logo  img
+{
+  width: 180px;
+}
+
+.locale-icon svg
+{
+  height: 30px;
+}
+
+.customInput 
+{
+  width: 100%;
+  border: none;
+  height: 40px;
+
+}
+.custom-label ,.custom-labels span{
+  display: flex;
+}
+.custom-label span{
+  display: flex;
+  width: 50%;
+}
+.custom-label span:first-child
+{
+  justify-content: start;  
+}
+.custom-label span:last-child
+{
+  justify-content: end;
+}
+
+div.custom-radio > label > input {
+	visibility: hidden;
+}
+
+div.custom-radio > label {
+	display: block;
+	margin: 0 0 0 -10px;
+	padding: 0 0 20px 0;  
+	height: 20px;
+	/* width: 150px; */
+}
+
+div.custom-radio > label > img {
+	display: inline-block;
+	padding: 0px;
+	height:30px;
+	width:30px;
+	background: none;
+}
+div.custom-radio > label span::after{
+  content: 'wewew';
+  width: 100px;
+  height: 100px;
+  position: absolute;
+}
+div.custom-radio > label > input:checked +img {  
+	background: url('https://cdn1.iconfinder.com/data/icons/onebit/PNG/onebit_34.png');
+	background-repeat: no-repeat;
+	background-position:center center;
+	background-size:30px 30px;
+}
+
+/* Rectangle 25 */
+
+.iti{
+  width: 100%;
+}
+.iti--separate-dial-code .iti__selected-flag{
+  background-color: #91B6BC !important;
+}
+.iti__selected-flag{
+  height: 104% !important;
+  top: -1px !important;
+  left: -1px !important;
+}
+
+.page-item.active .page-link{
+  background-color: #283645;
+  border-color: #283645;
+}
+.page-link{
+  color: #283645;
+}

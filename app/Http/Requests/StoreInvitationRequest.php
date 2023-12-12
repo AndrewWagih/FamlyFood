@@ -24,6 +24,7 @@ class StoreInvitationRequest extends FormRequest
         return [
             'email' => 'required|email|unique:invitations|max:255',
             'name' => 'required|max:255',
+            'phone' => 'required|max:255',
             'nationality' => 'nullable|max:255',
             'resident_or_passport_id' => 'nullable|max:255',
         ];
