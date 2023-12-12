@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{asset('css/jquery.toast.min.css')}}">
   </head>
 
-  <body dir="rtl">
+  <body dir="{{app()->getLocale() == 'ar'?'rtl':'ltr'}}" >
     <div class="layoutS2">
       <nav>
         <div class="logo"></div>
@@ -19,11 +19,11 @@
             <a href=""><img src="{{asset('assets/icons/user.svg')}}" alt="" /> </a>
           </li>
 
-          <li>
+          {{-- <li>
             <a href="{{route('invitationSetting')}}">
               <img src="{{asset('assets/icons/settings.svg')}}" alt="">
             </a>
-          </li>
+          </li> --}}
         </ul>
       </nav>
       <main >

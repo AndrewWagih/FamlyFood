@@ -1,8 +1,9 @@
 <?php
 
+use App\Models\Invitation;
 use Illuminate\Support\Facades\Route;
 use  Dinushchathurya\NationalityList\Nationality;
-
+use Illuminate\Support\Facades\Session;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +18,15 @@ use  Dinushchathurya\NationalityList\Nationality;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
+Route::get('change-locale/{locale}',function($locale){
+    if($locale == 'en'){
+        Session::put('locale', $locale);
+    }else{
+        Session::put('locale', $locale);
+    }
+    return redirect()->back();
+})->name('change-locale');
 
 Route::group(['middleware' => ['web','auth']], function () {
     Route::get('invitations','InvitationController@index')->name('invitations');
@@ -47,10 +57,12 @@ Route::post('/invitation-image-setting','SettingController@storeInvitationSettin
 Route::view('invitation-accept-or-reject-second-step','choose-nationality')->name('invitation-accept-or-reject-second-step');
 
 
-
+Route::get('export-invitations','ExportExcelController@exportInvitations')->name('exportInvitations');
 
 Route::view('thank-you','thank-you')->name('thank-you');
+Route::get('download-agenda','InvitationController@downloadAgenda')->name('download-agenda');
 
-Route::get('ee',function(){
-    dd(Nationality::getNationalities());
+Route::get('first-mail',function(){
+    $invitation = Invitation::first();
+    return view('emails.confirm-attend',compact('invitation'));
 });

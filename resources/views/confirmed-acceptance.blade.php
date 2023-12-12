@@ -63,7 +63,7 @@
                 font-weight: 700;
                 padding-top: 50px;
             ">
-              تم تأكيد الحضور
+              {{__('Attendance confirmed')}}
             </div>
             <div class="titleHeader-2 col-12" style="
               display: flex;
@@ -75,7 +75,7 @@
               color: #4F7989;
 
             ">
-              حفل تدشين المرصد العربي
+              {{__('The inauguration ceremony of the Arab Observatory')}}
             </div>
             <div class="titleHeaderIcon col-12">
               <svg width="100%" viewBox="0 0 1233 114" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -100,7 +100,7 @@
                       <span style="
                           font-size: 20px;
                           color: #0A2C36;
-                      ">الاسم:</span>
+                      ">{{__('Name')}}:</span>
                       <span style="
                           font-size: 25px;
                           color: #4F7989;
@@ -113,7 +113,7 @@
                       <span style="
                           font-size: 20px;
                           color: #0A2C36;
-                      ">الموقع:</span>
+                      ">{{__('location')}}:</span>
                       <span style="
                           font-size: 25px;
                           color: #4F7989;
@@ -126,7 +126,7 @@
                       <span style="
                           font-size: 20px;
                           color: #0A2C36;
-                      ">التاريخ:</span>
+                      ">{{__('Date')}}:</span>
                       <span style="
                           font-size: 25px;
                           color: #4F7989;
@@ -139,7 +139,7 @@
                       <span style="
                           font-size: 20px;
                           color: #0A2C36;
-                      ">الوقت:</span>
+                      ">{{__('Time')}}:</span>
                       <span style="
                           font-size: 25px;
                           color: #4F7989;
@@ -155,7 +155,7 @@
                     color: #4F7989;
                     text-align: center;
                   ">
-                    يرجي ابراز البطاقة عند الدخول
+                    {{__('Please show your card upon entry')}}
                   </div>
                 </div>
               </div>

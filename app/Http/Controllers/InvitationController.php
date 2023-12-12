@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Session;
 
 class InvitationController extends Controller
 {
+
+    public function downloadAgenda(){
+        return response()->download(public_path('assets/PDF/agenda.pdf'), 'Agenda for the inauguration ceremony of the Arabic Translation Observatory.pdf');
+    }
     public function index()
     {
         $invitations = Invitation::with('sub')->where('parent_id',null)->orderBy('id','desc')->paginate(3);
@@ -28,8 +32,8 @@ class InvitationController extends Controller
     {
         $invitation = Invitation::create($request->validated());
         $data = ['invitation' => $invitation];
-        // Mail::send('emails.invitation', $data, function($message) {
-        //     $message->to('')->subject('Invitation');
+        // Mail::send('emails.invitation', $data, function($message) use($invitation) {
+        //     $message->to($invitation->email)->subject('Invitation');
         //     $message->from('','Sender Name');
         // });
         Session::flash('successfully', 'operation was done successfully');
@@ -91,6 +95,10 @@ class InvitationController extends Controller
             // dd($accompanying);
             Invitation::create($accompanying);
         }
+        // Mail::send('emails.confirm-attend', $data, function($message) use($invitation) {
+        //     $message->to($invitation->email)->subject('Confirm attend');
+        //     $message->from('','Sender Name');
+        // });
         Session::flash('successfully', 'operation was done successfully');
         
         return redirect()->route('confirmed-acceptance',$invitation->id);

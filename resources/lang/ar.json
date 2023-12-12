@@ -1,4 +1,6 @@
 {
+    "Name" : "الاسم",
+    "Please enter the name" : "ادخل الاسم",
     "Send invitation" : "ارسال دعوة",
     "Email":"البريد الالكتروني",
     "Please enter the email":"ادخل البريد الالكتروني",
@@ -18,6 +20,23 @@
     "Identity of the invitees" :"هوية المدعوين",
     "Number of companions" : "عدد مرافقين",
     "Inauguration attendance data" : "بيانات حضور حفل التدشين",
-    "Resident / Passport ID" : "هوية المقيم / جواز السفر"
+    "Resident / Passport ID" : "هوية المقيم / جواز السفر",
+    "Invite" : "ادعو شخص",
+    "Download file" : "تحميل الملف",
+    "Attendance confirmed" : "تم تأكيد الحضور",
+    "The inauguration ceremony of the Arab Observatory" : "حفل تدشين المرصد العربي",
+    "Location" :"الموقع",
+    "Date" :"التاريخ",
+    "Time" :"الوقت",
+    "Please show your card upon entry" :"يرجي ابراز البطاقة عند الدخول",
+    "" :"",
+    "" :"",
+    "" :"",
+    "" :"",
+    "" :"",
+    "" :"",
+    "" :"",
+    "" :"",
+    "" :""
 
 }
