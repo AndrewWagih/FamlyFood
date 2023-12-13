@@ -12,7 +12,7 @@
 <body>
 </body>
 
-<body>
+<body dir="rtl">
     <div id="component" class="container-fluid py-3">
         <p class="text-end  m-0 px-3 py-2">
             <span style="color: #F3A58F" class=" fs-1 fw-bold font-family-Almarai">
