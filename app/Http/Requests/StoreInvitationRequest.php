@@ -22,7 +22,8 @@ class StoreInvitationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => 'required|email|unique:invitations|max:255',
+            'email' => 'required|email|max:255',
+            // 'email' => 'required|email|unique:invitations|max:255',
             'name' => 'required|max:255',
             'phone' => 'required|max:255',
             'nationality' => 'nullable|max:255',
