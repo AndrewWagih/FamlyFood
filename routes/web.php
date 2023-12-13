@@ -64,10 +64,27 @@ Route::get('download-agenda','InvitationController@downloadAgenda')->name('downl
 
 Route::get('first-mail',function(){
     $invitation = Invitation::first();
+    // return view('emails.new-invitation',compact('invitation'));
     $data = ['invitation' => $invitation];
-    Mail::send('emails.confirm-attend', $data, function($message) use($invitation) {
+    Mail::send('emails.invitation', $data, function($message) use($invitation) {
+        // $message->to('a.ahmedwageh@gmail.com')->subject('Invitation');
         $message->to('eng.andrewwagih@gmail.com')->subject('Invitation');
         // $message->from('','Sender Name');
     });
-    return view('emails.confirm-attend',compact('invitation'));
+    Mail::send('emails.confirm-attend', $data, function($message) use($invitation) {
+        // $message->to('a.ahmedwageh@gmail.com')->subject('Invitation');
+        $message->to('eng.andrewwagih@gmail.com')->subject('Invitation');
+        // $message->from('','Sender Name');
+    });
+    Mail::send('emails.invitation', $data, function($message) use($invitation) {
+        $message->to('a.ahmedwageh@gmail.com')->subject('Invitation');
+        // $message->to('eng.andrewwagih@gmail.com')->subject('Invitation');
+        // $message->from('','Sender Name');
+    });
+    Mail::send('emails.confirm-attend', $data, function($message) use($invitation) {
+        $message->to('a.ahmedwageh@gmail.com')->subject('Invitation');
+        // $message->to('eng.andrewwagih@gmail.com')->subject('Invitation');
+        // $message->from('','Sender Name');
+    });
+    return view('emails.invitation',compact('invitation'));
 });
