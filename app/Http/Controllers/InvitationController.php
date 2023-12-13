@@ -32,10 +32,10 @@ class InvitationController extends Controller
     {
         $invitation = Invitation::create($request->validated());
         $data = ['invitation' => $invitation];
-        // Mail::send('emails.invitation', $data, function($message) use($invitation) {
-        //     $message->to($invitation->email)->subject('Invitation');
-        //     $message->from('','Sender Name');
-        // });
+        Mail::send('emails.invitation', $data, function($message) use($invitation) {
+            $message->to($invitation->email)->subject('Invitation');
+            // $message->from('','Sender Name');
+        });
         Session::flash('successfully', 'operation was done successfully');
         return redirect()->route('invitations');
     }
@@ -95,10 +95,13 @@ class InvitationController extends Controller
             // dd($accompanying);
             Invitation::create($accompanying);
         }
-        // Mail::send('emails.confirm-attend', $data, function($message) use($invitation) {
-        //     $message->to($invitation->email)->subject('Confirm attend');
-        //     $message->from('','Sender Name');
-        // });
+        $data = [
+            'invitation' => $invitation
+        ];
+        Mail::send('emails.confirm-attend', $data, function($message) use($invitation) {
+            $message->to($invitation->email)->subject('Confirm attend');
+            // $message->from('','Sender Name');
+        });
         Session::flash('successfully', 'operation was done successfully');
         
         return redirect()->route('confirmed-acceptance',$invitation->id);
