@@ -8,10 +8,6 @@
         invitation
     </title>
 </head>
-
-<body>
-</body>
-
 <body dir="rtl">
     <div id="component" class="container-fluid py-3">
         <p class="text-end  m-0 px-3 py-2">
