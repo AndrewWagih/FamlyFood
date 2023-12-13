@@ -21,7 +21,7 @@ return new class extends Migration
             $table->enum('status',['pending','accept','reject'])->default('pending');
             $table->boolean('confirmed_attendance')->default(false);
             $table->unsignedBigInteger('parent_id')->nullable();
-            $table->foreign('parent_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('parent_id')->references('id')->on('invitations')->onDelete('cascade');
             $table->timestamps();
         });
     }
