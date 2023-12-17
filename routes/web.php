@@ -3,6 +3,7 @@
 use App\Models\Invitation;
 use Illuminate\Support\Facades\Route;
 use  Dinushchathurya\NationalityList\Nationality;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Session;
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,8 @@ Route::group(['middleware' => ['web','auth']], function () {
     Route::get('invitations','InvitationController@index')->name('invitations');
     Route::get('invitations/create','InvitationController@create')->name('invitations.create');
     Route::post('invitations','InvitationController@store')->name('invitations.store');
-    
+    Route::get('admin/info','AuthController@info')->name('admin.info');
+    Route::post('admin/info','AuthController@updateInfo')->name('admin.update.info');
 });
 
 Route::get('email-test',function(){
@@ -71,20 +73,34 @@ Route::get('first-mail',function(){
         $message->to('eng.andrewwagih@gmail.com')->subject('Invitation');
         // $message->from('','Sender Name');
     });
-    Mail::send('emails.confirm-attend', $data, function($message) use($invitation) {
-        // $message->to('a.ahmedwageh@gmail.com')->subject('Invitation');
-        $message->to('eng.andrewwagih@gmail.com')->subject('Invitation');
-        // $message->from('','Sender Name');
-    });
-    Mail::send('emails.invitation', $data, function($message) use($invitation) {
-        $message->to('a.ahmedwageh@gmail.com')->subject('Invitation');
-        // $message->to('eng.andrewwagih@gmail.com')->subject('Invitation');
-        // $message->from('','Sender Name');
-    });
-    Mail::send('emails.confirm-attend', $data, function($message) use($invitation) {
-        $message->to('a.ahmedwageh@gmail.com')->subject('Invitation');
-        // $message->to('eng.andrewwagih@gmail.com')->subject('Invitation');
-        // $message->from('','Sender Name');
-    });
+    // Mail::send('emails.confirm-attend', $data, function($message) use($invitation) {
+    //     // $message->to('a.ahmedwageh@gmail.com')->subject('Invitation');
+    //     $message->to('eng.andrewwagih@gmail.com')->subject('Invitation');
+    //     // $message->from('','Sender Name');
+    // });
+    // Mail::send('emails.invitation', $data, function($message) use($invitation) {
+    //     $message->to('a.ahmedwageh@gmail.com')->subject('Invitation');
+    //     // $message->to('eng.andrewwagih@gmail.com')->subject('Invitation');
+    //     // $message->from('','Sender Name');
+    // });
+    // Mail::send('emails.confirm-attend', $data, function($message) use($invitation) {
+    //     $message->to('a.ahmedwageh@gmail.com')->subject('Invitation');
+    //     // $message->to('eng.andrewwagih@gmail.com')->subject('Invitation');
+    //     // $message->from('','Sender Name');
+    // });
     return view('emails.invitation',compact('invitation'));
+});
+
+
+Route::get('clear',function(){
+    Artisan::call('config:clear');
+    Artisan::call('config:cache');
+    Artisan::call('cache:clear');
+    Artisan::call('view:clear');
+    Artisan::call('optimize:clear');
+    dd('done');
+});
+
+Route::get('test',function(){
+    dd(App\Models\Invitation::pluck('id'));
 });

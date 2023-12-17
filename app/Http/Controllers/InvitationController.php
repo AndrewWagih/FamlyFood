@@ -20,12 +20,12 @@ class InvitationController extends Controller
     public function index()
     {
         $invitations = Invitation::with('sub')->where('parent_id',null)->orderBy('id','desc')->paginate(3);
-        return view('invitations.index',compact('invitations'));
+        return view('admin.index',compact('invitations'));
     }
 
     public function create()
     {
-        return view('invitations.create');
+        return view('admin.create');
     }
 
     public function store(StoreInvitationRequest $request)
@@ -51,7 +51,7 @@ class InvitationController extends Controller
     public function acceptOrReject(Request $request,$id)
     {
 
-        $invitation = Invitation::find($id);
+        $invitation = Invitation::findOrFail($id);
         $invitation->update(['status' => $request->status]);
         if($request->status == 'accept')
         {

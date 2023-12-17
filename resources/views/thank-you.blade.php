@@ -99,7 +99,7 @@
     <div class=content>
         <div class="wrapper-1">
           <div class="wrapper-2">
-            <h1>Thank you !</h1>
+            <h1>{{__('Thank you !')}}</h1>
             {{-- <p>Thanks for your time</p> --}}
         {{-- <button class="go-home">
               go home

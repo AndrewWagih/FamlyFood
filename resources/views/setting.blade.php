@@ -1,4 +1,4 @@
-@extends('invitations.layout.app')
+@extends('admin.layout.app')
 @section('content')
 <div class="container my-5">
   <div class="row justify-content-center">

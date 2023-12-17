@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Invitations</title>
+    <title>--</title>
 
     <!-- global  -->
     <link rel="stylesheet" href="{{asset('css/global.css')}}" />
@@ -16,7 +16,7 @@
         <div class="logo"></div>
         <ul class="nav-list">
           <li>
-            <a href=""><img src="{{asset('assets/icons/user.svg')}}" alt="" /> </a>
+            <a href="{{route('admin.info')}}" ><img src="{{asset('assets/icons/user.svg')}}" alt="{{route('admin.info')}}" /> </a>
           </li>
 
           {{-- <li>

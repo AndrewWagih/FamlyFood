@@ -1,4 +1,4 @@
-@extends('invitations.layout.app')
+@extends('admin.layout.app')
 @section('content')
 <div class="container my-5">
   <div class="row justify-content-center">
@@ -28,7 +28,7 @@
 
           <div class="col-md-12">
             <label for="phone" class="form-label">{{__('Phone')}} <span class="text-danger">*</span></label>
-            <input type="tel" class="form-control" id="phone" name="phone" placeholder="{{__('Please enter the phone')}}">
+            <input type="tel" class="form-control text-end" id="phone" name="phone" placeholder="{{__('Please enter the phone')}}">
             @if ($errors->has('phone'))
               <span class="invalid-feedback d-block">
                   <strong>{{ $errors->first('phone') }}</strong>

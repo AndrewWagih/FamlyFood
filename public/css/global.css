@@ -449,7 +449,7 @@ nav .nav-list {
   color: white;
   font-size: 14px;
   font-weight: bolder;
-  width: 180px;
+  /* width: 180px; */
   border-radius: 19px;
   height: 66px;
   align-items: center;
@@ -607,3 +607,4 @@ div.custom-radio > label > input:checked +img {
 .page-link{
   color: #283645;
 }
+

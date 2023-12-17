@@ -118,9 +118,21 @@
     });
   }
   phoneCode();
+  $(`input[name="there_any_accompanying"]`).on('change',function(){
+    
+    console.log($(this).val());
+    if($(this).val() == 'no')
+    {
+      $(`.form-repeter`).html(`<div>
+          <div class="custom-label py-2"><span class="h3">بيانات المرافق</span></div>
+        </div>`);
+      
+    }
 
+  });
   $('form').submit(function(e){
       e.preventDefault;
+      
       // let phone = $('input[name="phone"]').val()
       // $('input[name="phone"]').val($('.iti__selected-dial-code').text()+phone);
       // console.log($('.iti__selected-dial-code').text());
@@ -129,6 +141,7 @@
       Array.from(phones).forEach(function(phone,index) {
         phone.value =  phoneCodes[index].textContent + phone.value;
       });
+      
   })
 </script>
 <script>
