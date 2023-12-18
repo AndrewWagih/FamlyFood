@@ -10,6 +10,14 @@
     background-size: 15% !important;
     height: 100% !important;
   }
+  #nationality a{
+    transition: 0.6s;
+    background: #D9D9D9;
+  }
+  #nationality a:hover, #nationality a:focus, #nationality a:active {
+    transition: 0.6s;
+    background: #0A2C36;
+  }
   .cardContatiner{
     display: flex;justify-content: center;padding: 50px;margin: 45px 0;
   }
@@ -32,10 +40,8 @@
   <div class="container">
     <div class="row cardContatiner"  style="">
       <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12" style="border-radius: 38px;background: #FFF;box-shadow: 0px 21px 13.9px 0px rgba(0, 0, 0, 0.15);">
-          <div class="row">
+          <div class="row flex justify-content-center">
             <div class="titleHeader col-12" style="
-                display: flex;
-                justify-content: center;
                 align-items: center;
                 color: #0A2C36;
                 text-align: center;
@@ -43,7 +49,7 @@
                 font-weight: 700;
                 padding-top: 50px;
             ">
-              للإنتقال الي صفحة التسجيل  يرجي  الأختيار
+              {{__('To continue your registration, please choose')}}
             </div>
             <div class="titleHeaderIcon col-12">
               <svg width="100%" viewBox="0 0 1233 114" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -65,17 +71,17 @@
                 font-weight: 700;
                 margin: -10pxß
             ">
-              الجنسية
+              {{__('Nationality')}}
             </div>
-            <div class="row py-5">
-              <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+            <div class="row py-5" id="nationality">
+              <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 ">
                 <div style="
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     margin:25px
                 ">
-                  <a href="{{route('questionnaire',['id'=>request()->invitation_id,'is_saudi' => 'yes'])}}" style="text-align: center;width: 200px;padding: 20px;border-radius: 31px;background: #D9D9D9;box-shadow: 0px 4px 10.9px 0px rgba(0, 0, 0, 0.15);color: #FFF;font-size: 24px;">سعودي</a>
+                  <a href="{{route('questionnaire',['id'=>request()->invitation_id,'is_saudi' => 'yes'])}}" style="text-align: center;width: 200px;padding: 20px;border-radius: 31px;box-shadow: 0px 4px 10.9px 0px rgba(0, 0, 0, 0.15);color: #FFF;font-size: 24px;">{{__('Saudi')}}</a>
                 </div>
               </div>
               <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
@@ -85,7 +91,7 @@
                     align-items: center;
                     margin:25px
                 ">
-                  <a href="{{route('questionnaire',['id'=>request()->invitation_id,'is_saudi' => 'no'])}}" style="text-align: center;width: 200px;padding: 20px;border-radius: 31px;background: #0A2C36;box-shadow: 0px 4px 10.9px 0px  rgba(0, 0, 0, 0.15);;color: #FFF;font-size: 24px;">غير سعودي</a>
+                  <a href="{{route('questionnaire',['id'=>request()->invitation_id,'is_saudi' => 'no'])}}" style="text-align: center;width: 200px;padding: 20px;border-radius: 31px; box-shadow: 0px 4px 10.9px 0px  rgba(0, 0, 0, 0.15);;color: #FFF;font-size: 24px;">{{__('Not Saudi')}}</a>
                 </div>
               </div>
             </div>
