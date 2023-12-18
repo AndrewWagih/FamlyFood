@@ -96,7 +96,7 @@
     </style>
 </head>
 <body>
-    <div class=content>
+    <div class=content dir="{{app()->getLocale() == 'ar'?'rtl':'ltr'}}">
         <div class="wrapper-1">
           <div class="wrapper-2">
             <h1>{{__('Thank you !')}}</h1>

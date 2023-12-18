@@ -14,7 +14,7 @@
     display: flex;justify-content: center;padding: 50px;margin: 45px 0;
   }
   .customePadding-35{
-    padding: 0px;
+    padding: 0px 0px 35px 0px;
   }
   @media only screen and (min-width: 600px) and (max-width: 1023px) {
     .cardContatiner{
@@ -113,11 +113,11 @@
                       <span style="
                           font-size: 20px;
                           color: #0A2C36;
-                      ">{{__('location')}}:</span>
+                      ">{{__('Location')}}:</span>
                       <span style="
                           font-size: 25px;
                           color: #4F7989;
-                      ">الريتز كارلتون</span>
+                      ">{{__('Ritz-Carlton')}}</span>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 ">
                       <svg xmlns="http://www.w3.org/2000/svg" width="50"  viewBox="0 0 63 62" fill="none">
@@ -143,7 +143,7 @@
                       <span style="
                           font-size: 25px;
                           color: #4F7989;
-                      ">7 مساءا</span>
+                      ">7 {{__('PM')}}</span>
                     </div>
                   </div>
                 </div>

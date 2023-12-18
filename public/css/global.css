@@ -439,6 +439,7 @@ nav .nav-list {
 
 .invitationsPage table  thead tr td{
   background: transparent;
+  text-align: center;
 }
 
 .invitationsPage table  thead tr td span
@@ -524,6 +525,15 @@ margin-bottom: 20px;
 .header .logo  img
 {
   width: 180px;
+}
+
+
+@media (max-width: 700px) {
+
+  .header .logo  img
+  {
+    width: 70px;
+  }
 }
 
 .locale-icon svg

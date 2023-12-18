@@ -4,12 +4,25 @@
 @endpush
 
 @push('middle-section-of-nav')
-  <div class="fw-bolder fs-5">بيانات تاكيد الحضور</div>
+  <div class="fw-bolder fs-5">{{__('Attendance confirmation information')}}</div>
   <div>
-    المعلومات اللازمة لتأكيد حضور حڡل التدشٮ﮵ن
+    {{__('Information required to confirm attendance at the launch ceremony')}}
   </div>
 @endpush
 @section('content')
+<style>
+  
+  .iti{
+    width: auto;
+  }
+  .iti--allow-dropdown {
+    width: 100%
+  }
+  .iti__country-list{
+    direction: ltr;
+    left:0;
+  }
+</style>
   <div class="container p-5">
     <form method="POST" action="{{route('submitQuestionnaire',$id)}}">
       @csrf
@@ -55,12 +68,12 @@
         </div>
         @if(request()->is_saudi != 'yes')
           <div class="row py-2">
-            <div class="col-2 custom-label align-items-center px-4" >هل هناك أي مرافقين؟</div>
+            <div class="col-2 custom-label align-items-center px-4" >{{__('Are there companions?')}}</div>
             <div class="col-10 custom-radio">
               <input class="customInput form-check-input" type="radio"  id="radio1" required name="there_any_accompanying" value="yes">
-              <label for="radio1" class="px-2">نعم</label>
+              <label for="radio1" class="px-2">{{__('Yes')}}</label>
               <input class="customInput form-check-input" type="radio" id="radio1" required name="there_any_accompanying" value="no">
-              <label for="radio1" class="px-2">لا</label>
+              <label for="radio1" class="px-2">{{__('No')}}</label>
             </div>
             
           </div>
@@ -68,19 +81,19 @@
         
         <div class="row form-repeter" style="display: none">
           <div>
-            <div class="custom-label py-2"><span class="h3">بيانات المرافق</span></div>
+            <div class="custom-label py-2"><span class="h3">{{__('Companion Information')}}</span></div>
           </div>
           
         </div>
 
         <div class="col-xl-12 col-md-12 col-sm12 px-4 py-2  addNewContainer" style="display: none" >
           <div class="d-flex align-items-center">
-            <button class="addNew" > + اضافة مرافق اخر</button>
-            <span class="p3 text-secondary">يسمح بإضافة عدد 2 مرافق فقط</span>
+            <button class="addNew" > {{__('Add another companion +')}}</button>
+            <span class="p-3 text-secondary">{{__('Only 2 companions are allowed to be added')}}</span>
           </div>
         </div>
         <div class="col-12 d-flex justify-content-center">
-          <button style="width: 200px;height: 50px;background: #FFA389;color: white;font-size: 25px;font-weight: 700;">ارسال</button>
+          <button style="width: 200px;height: 50px;background: #FFA389;color: white;font-size: 25px;font-weight: 700;">{{__('Send')}}</button>
         </div>
       </div>
         
@@ -124,7 +137,7 @@
     if($(this).val() == 'no')
     {
       $(`.form-repeter`).html(`<div>
-          <div class="custom-label py-2"><span class="h3">بيانات المرافق</span></div>
+          <div class="custom-label py-2"><span class="h3">{{__('Companion Information')}}</span></div>
         </div>`);
       
     }
