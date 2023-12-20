@@ -86,8 +86,9 @@ class InvitationController extends Controller
 
     public function questionnaire($id)
     {
+        $invitation = Invitation::findOrFail($id);
         $nationalities = Nationality::getNationalities();
-        return view('questionnaire',compact('id','nationalities'));
+        return view('questionnaire',compact('id','nationalities','invitation'));
     }
 
     public function submitQuestionnaire(SubmitQuestionnaireRequest $request,$id)
@@ -106,12 +107,14 @@ class InvitationController extends Controller
             'phone' => $request->phone,
             'confirmed_attendance' => 1,
         ]);
-
-        foreach($request->accompanying as $accompanying)
+        if(isset($request->accompanying))
         {
-            $accompanying['parent_id'] = $invitation->id;
-            // dd($accompanying);
-            Invitation::create($accompanying);
+            foreach($request->accompanying as $accompanying)
+            {
+                $accompanying['parent_id'] = $invitation->id;
+                // dd($accompanying);
+                Invitation::create($accompanying);
+            }
         }
         $data = [
             'invitation' => $invitation
