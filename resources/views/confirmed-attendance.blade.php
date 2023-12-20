@@ -63,7 +63,7 @@
                 font-weight: 700;
                 padding-top: 50px;
             ">
-              {{__('Attendance confirmed')}}
+              {{__('Attendance confirm')}}
             </div>
             <div class="titleHeader-2 col-12" style="
               display: flex;
@@ -91,76 +91,58 @@
             </div>
             <div class="col-12">
               <div class="row customePadding-35">
-                <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                   <div class="row">
-                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 ">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 ">
                       <svg xmlns="http://www.w3.org/2000/svg" width="50"  viewBox="0 0 63 62" fill="none">
                         <path d="M63 31C45.7148 31 31.6619 17.1815 31.5 -1.37691e-06C31.3909 17.1815 17.3381 31 2.45964e-06 31C17.3381 31 31.3942 44.8709 31.5 62C31.6619 44.8742 45.7148 31 63 31Z" fill="#FFA389"/>
                       </svg>
                       <span style="
                           font-size: 20px;
                           color: #0A2C36;
-                      ">{{__('Name')}}:</span>
+                      ">{{__('Name of invitee')}}:</span>
                       <span style="
                           font-size: 25px;
                           color: #4F7989;
                       ">{{$invitation->name??''}}</span>
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 ">
+                    @foreach($invitation->sub as $sub)
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 ">
                       <svg xmlns="http://www.w3.org/2000/svg" width="50"  viewBox="0 0 63 62" fill="none">
                         <path d="M63 31C45.7148 31 31.6619 17.1815 31.5 -1.37691e-06C31.3909 17.1815 17.3381 31 2.45964e-06 31C17.3381 31 31.3942 44.8709 31.5 62C31.6619 44.8742 45.7148 31 63 31Z" fill="#FFA389"/>
                       </svg>
                       <span style="
                           font-size: 20px;
                           color: #0A2C36;
-                      ">{{__('Location')}}:</span>
+                      ">{{__('Facilities name')}}:</span>
                       <span style="
                           font-size: 25px;
                           color: #4F7989;
-                      ">{{__('Ritz-Carlton')}}</span>
+                      ">{{$sub->name}}</span>
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 ">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="50"  viewBox="0 0 63 62" fill="none">
-                        <path d="M63 31C45.7148 31 31.6619 17.1815 31.5 -1.37691e-06C31.3909 17.1815 17.3381 31 2.45964e-06 31C17.3381 31 31.3942 44.8709 31.5 62C31.6619 44.8742 45.7148 31 63 31Z" fill="#FFA389"/>
-                      </svg>
-                      <span style="
-                          font-size: 20px;
-                          color: #0A2C36;
-                      ">{{__('Date')}}:</span>
-                      <span style="
-                          font-size: 25px;
-                          color: #4F7989;
-                      "> 13/01/2024</span>
-                    </div>
-                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 ">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="50"  viewBox="0 0 63 62" fill="none">
-                        <path d="M63 31C45.7148 31 31.6619 17.1815 31.5 -1.37691e-06C31.3909 17.1815 17.3381 31 2.45964e-06 31C17.3381 31 31.3942 44.8709 31.5 62C31.6619 44.8742 45.7148 31 63 31Z" fill="#FFA389"/>
-                      </svg>
-                      <span style="
-                          font-size: 20px;
-                          color: #0A2C36;
-                      ">{{__('Time')}}:</span>
-                      <span style="
-                          font-size: 25px;
-                          color: #4F7989;
-                      ">7 {{__('PM')}}</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12">
-                  <div class="d-flex justify-content-center py-2">
-                    {{SimpleSoftwareIO\QrCode\Facades\QrCode::generate(route('confirmed-attended.view',$invitation->id))}}
-                  </div>
-                  <div style="
-                    color: #4F7989;
-                    text-align: center;
-                  ">
-                    {{__('Please show your card upon entry')}}
+                    @endforeach
                   </div>
                 </div>
               </div>
             </div>
 
+            <div class="col-12 p-5">
+              <form method="POST" action="{{route('confirmed-attended',$invitation->id)}}">
+                @csrf
+                <div class="form-group">
+                  <label for="exampleInputEmail1">{{__('Password')}}</label>
+                  <input type="password" class="form-control" required name="password" placeholder="{{__('Please enter the password')}}">
+                </div>
+                @if ($errors->has('password'))
+                  <div class="form-group">
+                    <label for="exampleInputEmail1"><strong class="text-danger">{{ $errors->first('password') }}</strong></label>
+                  </div>
+                @endif
+                <div class="form-group py-3">
+                  <button class="btn btn-primary w-100">{{__('Attendance confirm')}}</button>
+                </div>
+              </form>
+            </div>
           </div>
       </div>
       

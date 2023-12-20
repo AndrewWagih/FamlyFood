@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Classes\AppSetting;
+use App\Http\Requests\confirmedAttendedRequest;
 use App\Http\Requests\StoreInvitationRequest;
 use App\Http\Requests\SubmitQuestionnaireRequest;
 use App\Models\Invitation;
@@ -62,8 +63,25 @@ class InvitationController extends Controller
     }
 
     public function confirmedAcceptance($id){
-        $invitation = Invitation::find($id);
+        $invitation = Invitation::where('parent_id',null)->find($id);
         return view('confirmed-acceptance',compact('invitation'));
+    }
+
+    public function confirmedAttendedView($id){
+        $invitation = Invitation::with('sub')->where('parent_id',null)->find($id);
+        return view('confirmed-attendance',compact('invitation'));
+    }
+
+    public function confirmedAttended(confirmedAttendedRequest $request,$id){
+        if($request->password == '2342')
+        {
+            $invitation = Invitation::where('parent_id',null)->find($id);
+            $invitation->update(['is_attended' => 1]);
+            Session::flash('successfully', 'operation was done successfully');
+            return redirect()->route('thank-you');
+        }
+        Session::flash('error-message', 'كلمة المرور خاطئة');
+        return redirect()->back();
     }
 
     public function questionnaire($id)
@@ -75,7 +93,7 @@ class InvitationController extends Controller
     public function submitQuestionnaire(SubmitQuestionnaireRequest $request,$id)
     {
         
-        $invitation = Invitation::find($id);
+        $invitation = Invitation::findOrFail($id);
         if($invitation->confirmed_attendance == 1)
         {
             Session::flash('error-message', 'you already confirmed attendance / لقد قمت بتاكيد الحجز مسبقا');

@@ -48,6 +48,8 @@ Route::post('invitation/accept-or-reject/{id}','InvitationController@acceptOrRej
 Route::get('questionnaire/{id}','InvitationController@questionnaire')->name('questionnaire');
 Route::post('questionnaire/{id}','InvitationController@submitQuestionnaire')->name('submitQuestionnaire');
 Route::get('confirmed-acceptance/{id}','InvitationController@confirmedAcceptance')->name('confirmed-acceptance');
+Route::get('confirmed-attended/{id}','InvitationController@confirmedAttendedView')->name('confirmed-attended.view');
+Route::post('confirmed-attended/{id}','InvitationController@confirmedAttended')->name('confirmed-attended');
 
 
 Route::get('/','AuthController@loginForm')->name('login');
@@ -98,9 +100,17 @@ Route::get('clear',function(){
     Artisan::call('cache:clear');
     Artisan::call('view:clear');
     Artisan::call('optimize:clear');
+
+    dd('done');
+});
+
+Route::get('migrate',function(){
+
+    Artisan::call('migrate');
     dd('done');
 });
 
 Route::get('test',function(){
-    dd(App\Models\Invitation::pluck('id'));
+    App\Models\Invitation::where('parent_id',null)->update(['confirmed_attendance'=>0]);
+    dd(App\Models\Invitation::where('parent_id',null)->pluck('id'));
 });
